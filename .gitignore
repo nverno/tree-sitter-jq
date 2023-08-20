@@ -1,0 +1,10 @@
+.log/
+node_modules/
+test/example.txt
+tmp.*
+build/
+package-lock.json
+
+# src/
+# Cargo.toml
+# binding*
