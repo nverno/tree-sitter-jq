@@ -6,11 +6,10 @@ UDIR="$PDIR/../../src/tree-sitter-jq"
 EXE="node_modules/.bin/tree-sitter"
 
 run_test() {
-    local root="$PDIR" exe="$PDIR/$EXE" tst
+    local root="$PDIR" tst
     while (( "$#" )); do
         case "$1" in
-            -u) exe="$UDIR/$EXE"
-                root="$UDIR"
+            -u) root="$UDIR"
                 ;;
             -*) echo "unrecognized flag: $1" && exit 1;;
             *) break;;
@@ -25,8 +24,13 @@ run_test() {
     fi
     shift
 
-    echo "[RUN] $exe parse $tst $*"
+    if [[ ! -x "$root/$EXE" ]]; then
+        echo "$root/$EXE" not found
+        exit 1
+    fi
     cd "$root" || exit 1
+
+    echo "[RUN] $root/$EXE parse $tst $*"
     npx tree-sitter generate && npx tree-sitter parse "$tst" "$@"
 }
 

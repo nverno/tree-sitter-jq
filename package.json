@@ -6,7 +6,7 @@
     "parser",
     "lexer"
   ],
-  "license": "WTFPL",
+  "license": "GPL-3.0-or-later",
   "author": "Noah Peart <noah.v.peart@gmail.com> (https://www.github.com/nverno)",
   "main": "bindings/node",
   "scripts": {
@@ -15,7 +15,8 @@
     "install": "node-gyp rebuild",
     "parse": "./scripts/test.sh run_test",
     "parse:up": "./scripts/test.sh run_test -u",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "ts": "tree-sitter"
   },
   "dependencies": {
     "nan": "^2.17.0"
