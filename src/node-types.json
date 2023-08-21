@@ -1,5 +1,159 @@
 [
   {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "binding_expression",
+          "named": true
+        },
+        {
+          "type": "break_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
+          "named": true
+        },
+        {
+          "type": "foreach_expression",
+          "named": true
+        },
+        {
+          "type": "format",
+          "named": true
+        },
+        {
+          "type": "function_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "label_expression",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "optional_expression",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "pipeline",
+          "named": true
+        },
+        {
+          "type": "recurse",
+          "named": true
+        },
+        {
+          "type": "reduce_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_pattern",
+          "named": true
+        },
+        {
+          "type": "object_pattern",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment_expression",
     "named": true,
     "fields": {
@@ -7,6 +161,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -33,6 +191,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -68,6 +234,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -93,6 +263,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -156,6 +330,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -181,6 +359,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -216,6 +402,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -241,6 +431,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -272,6 +466,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -297,6 +495,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -332,6 +538,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -357,6 +567,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -444,6 +658,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -469,6 +687,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -504,6 +730,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -532,6 +762,10 @@
             "named": true
           },
           {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
             "type": "true",
             "named": true
           },
@@ -556,11 +790,23 @@
     "named": true,
     "fields": {
       "bindings": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "patterns",
+            "type": "?//",
+            "named": false
+          },
+          {
+            "type": "array_pattern",
+            "named": true
+          },
+          {
+            "type": "object_pattern",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -569,6 +815,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "call_expression",
             "named": true
@@ -579,6 +829,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -598,6 +856,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "parenthesized_expression",
             "named": true
           },
@@ -607,6 +869,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -658,6 +924,10 @@
             "named": false
           },
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -683,6 +953,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -718,6 +996,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -743,6 +1025,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -788,6 +1074,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -813,6 +1103,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -848,6 +1146,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -873,6 +1175,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -898,6 +1204,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -923,6 +1233,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -958,6 +1276,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -983,6 +1305,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1014,6 +1340,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -1039,6 +1369,14 @@
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
           "named": true
         },
         {
@@ -1074,6 +1412,10 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "optional_expression",
           "named": true
         },
@@ -1102,6 +1444,10 @@
           "named": true
         },
         {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
           "type": "true",
           "named": true
         },
@@ -1121,6 +1467,111 @@
     }
   },
   {
+    "type": "field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "field_expression",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "field",
+            "named": true
+          }
+        ]
+      },
+      "object": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "foreach_expression",
     "named": true,
     "fields": {
@@ -1128,6 +1579,10 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -1154,6 +1609,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1189,6 +1652,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1214,6 +1681,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1239,6 +1710,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1264,6 +1739,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1299,6 +1782,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1324,6 +1811,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1349,6 +1840,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1374,6 +1869,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1409,6 +1912,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1434,6 +1941,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1480,6 +1991,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1505,6 +2020,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1540,6 +2063,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1565,6 +2092,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1616,6 +2147,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1641,6 +2176,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1676,6 +2219,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1701,6 +2248,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1747,6 +2298,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1772,6 +2327,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1807,6 +2370,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1832,6 +2399,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -1857,6 +2428,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -1882,6 +2457,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -1917,6 +2500,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -1942,6 +2529,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -2045,49 +2636,17 @@
     }
   },
   {
-    "type": "label_expression",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "variable",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "metadata",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "module",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "metadata",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "optional_expression",
+    "type": "interpolation",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -2114,6 +2673,14 @@
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
           "named": true
         },
         {
@@ -2149,6 +2716,248 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "optional_expression",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "pipeline",
+          "named": true
+        },
+        {
+          "type": "recurse",
+          "named": true
+        },
+        {
+          "type": "reduce_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "label_expression",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "metadata",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "module",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "metadata",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair_pattern",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "optional_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "binding_expression",
+          "named": true
+        },
+        {
+          "type": "break_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
+          "named": true
+        },
+        {
+          "type": "foreach_expression",
+          "named": true
+        },
+        {
+          "type": "format",
+          "named": true
+        },
+        {
+          "type": "function_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "label_expression",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "optional_expression",
           "named": true
         },
@@ -2177,6 +2986,10 @@
           "named": true
         },
         {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
           "type": "true",
           "named": true
         },
@@ -2193,6 +3006,162 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "pair_pattern",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_pattern",
+            "named": true
+          },
+          {
+            "type": "object_pattern",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2224,6 +3193,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -2249,6 +3222,14 @@
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
           "named": true
         },
         {
@@ -2284,6 +3265,10 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "optional_expression",
           "named": true
         },
@@ -2309,6 +3294,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
           "named": true
         },
         {
@@ -2331,36 +3320,6 @@
     }
   },
   {
-    "type": "pattern",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "patterns",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "pattern",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "pipeline",
     "named": true,
     "fields": {},
@@ -2368,6 +3327,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -2394,6 +3357,14 @@
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
           "named": true
         },
         {
@@ -2429,6 +3400,10 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "optional_expression",
           "named": true
         },
@@ -2454,6 +3429,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
           "named": true
         },
         {
@@ -2484,6 +3463,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -2509,6 +3492,14 @@
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "field_expression",
           "named": true
         },
         {
@@ -2560,6 +3551,10 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "optional_expression",
           "named": true
         },
@@ -2585,6 +3580,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
           "named": true
         },
         {
@@ -2615,6 +3614,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2640,6 +3643,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -2675,6 +3686,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -2700,6 +3715,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -2725,6 +3744,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2750,6 +3773,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -2785,6 +3816,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -2810,6 +3845,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -2851,6 +3890,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2876,6 +3919,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -2911,6 +3962,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -2936,6 +3991,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -2961,6 +4020,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2986,6 +4049,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -3021,6 +4092,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -3046,6 +4121,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -3069,13 +4148,17 @@
     }
   },
   {
-    "type": "try_expression",
+    "type": "slice_expression",
     "named": true,
     "fields": {
-      "body": {
+      "end": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -3102,6 +4185,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -3137,6 +4228,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -3162,6 +4257,511 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "start": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "binding_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "foreach_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "function_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "label_expression",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "optional_expression",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "pipeline",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "reduce_expression",
+            "named": true
+          },
+          {
+            "type": "sequence_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subscript_expression",
+    "named": true,
+    "fields": {
+      "index": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "binding_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "foreach_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "function_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "label_expression",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "optional_expression",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "pipeline",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "reduce_expression",
+            "named": true
+          },
+          {
+            "type": "sequence_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "object": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "slice_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "try_expression",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "binding_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "foreach_expression",
+            "named": true
+          },
+          {
+            "type": "format",
+            "named": true
+          },
+          {
+            "type": "function_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "label_expression",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "optional_expression",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "pipeline",
+            "named": true
+          },
+          {
+            "type": "recurse",
+            "named": true
+          },
+          {
+            "type": "reduce_expression",
+            "named": true
+          },
+          {
+            "type": "sequence_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -3186,6 +4786,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -3219,6 +4823,14 @@
             "named": true
           },
           {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
             "type": "foreach_expression",
             "named": true
           },
@@ -3251,6 +4863,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -3276,6 +4892,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -3307,6 +4927,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -3332,6 +4956,14 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "field_expression",
             "named": true
           },
           {
@@ -3367,6 +4999,10 @@
             "named": true
           },
           {
+            "type": "object",
+            "named": true
+          },
+          {
             "type": "optional_expression",
             "named": true
           },
@@ -3392,6 +5028,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "subscript_expression",
             "named": true
           },
           {
@@ -3435,6 +5075,10 @@
   },
   {
     "type": "!=",
+    "named": false
+  },
+  {
+    "type": "\"",
     "named": false
   },
   {
@@ -3550,6 +5194,26 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\\"",
+    "named": false
+  },
+  {
+    "type": "\\(",
+    "named": false
+  },
+  {
+    "type": "\\\\",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "alternative",
     "named": true
   },
@@ -3614,6 +5278,10 @@
     "named": false
   },
   {
+    "type": "keyword",
+    "named": true
+  },
+  {
     "type": "label",
     "named": false
   },
@@ -3640,10 +5308,6 @@
   {
     "type": "reduce",
     "named": false
-  },
-  {
-    "type": "string",
-    "named": true
   },
   {
     "type": "then",

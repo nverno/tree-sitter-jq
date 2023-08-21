@@ -1,9 +1,7 @@
 module.exports = grammar({
   name: 'jq',
 
-  // name of token matching keywords
-  // FIXME: should be identifiers
-  word: $ => $.keyword,
+  word: $ => $._identifier,
 
   // Tokens that can appear anywhere (comments/whitespace)
   extras: $ => [
@@ -20,7 +18,7 @@ module.exports = grammar({
   ],
 
   // hidden rule names to be considered supertypes in generated node types file
-  supertypes: $ => [],
+  // supertypes: $ => [],
 
   // JQ parser.y precedence
   // -----------------------------------
@@ -43,10 +41,10 @@ module.exports = grammar({
   // parse precedence: decreasing precedence order
   precedences: $ => [
     [
+      'member',                                   // .[], .<field>
       'catch',
       'try',
       'optional',                                 // postfix ?
-      'member',                                   // []
       'call',                                     // fn()
       'dot',                                      // .
       'unary',                                    // - +
@@ -63,6 +61,7 @@ module.exports = grammar({
     ],
     [$.assignment_expression, $.primary_expression],
     ['member', 'call', $.expression],
+    ['array', $.sequence_expression],
   ],
 
   // LR(1) conflicts
@@ -92,12 +91,8 @@ module.exports = grammar({
       ';'
     ),
 
-    metadata: $ => seq(
-      "{",
-      // TODO: constant pair list
-      "}"
-    ),
-
+    metadata: $ => $.object,
+    
     _import_statements: $ => choice(
       $.import_statement,
       $.include_statement,
@@ -139,28 +134,27 @@ module.exports = grammar({
     // ---------------------------------------------------------------
     /// Expressions 
 
-    expression: $ => choice(
+    _expression: $ => choice(
       $.function_expression,
       $.primary_expression,
       $.binary_expression,
-      $.assignment_expression,
       $.unary_expression,
+      $.assignment_expression,
       $.pipeline,
       $.binding_expression,
-      $.sequence_expression,
-      $.optional_expression,
       $.break_expression,
       $.reduce_expression,
       $.label_expression,
       $.foreach_expression,
       $.try_expression,
       $.if_expression,
+      $.optional_expression,
     ),
 
-    function_expression: $ => prec.right(-2, seq(
-      repeat1($.function_definition),
-      field("expression", $.expression),
-    )),
+    expression: $ => choice(
+      $.sequence_expression,
+      $._expression,
+    ),
 
     primary_expression: $ => choice(
       alias('.', $.dot),
@@ -169,17 +163,23 @@ module.exports = grammar({
       alias('false', $.false),
       alias('null', $.null),
       $.format,
+      $.field,
       $.number,
       $.identifier,
       $.variable,
       $.string,
       $.parenthesized_expression,
       $.call_expression,
-      // TODO:
-      // $.subscript_expression,
-      // $.object,
-      // $.array,
+      $.field_expression,
+      $.subscript_expression,
+      $.array,
+      $.object,
     ),
+
+    function_expression: $ => prec.right(-2, seq(
+      repeat1($.function_definition),
+      field("expression", $.expression),
+    )),
 
     pipeline: $ => prec.right('pipeline', seq(
       $.expression,
@@ -194,12 +194,6 @@ module.exports = grammar({
       '?'
     )),
     
-    binding_expression: $ => seq(
-      field("values", $.primary_expression),
-      'as',
-      field('bindings', $.patterns),
-    ),
-
     call_expression: $ => prec('call', seq(
       field('function', $._ident),
       field('arguments', $._arguments),
@@ -255,7 +249,7 @@ module.exports = grammar({
     _catch_expression: $ => prec('catch', seq(
       'catch',
       $.expression)
-    ),
+                               ),
 
     if_expression: $ => seq(
       'if',
@@ -279,15 +273,6 @@ module.exports = grammar({
       $.expression,
     ),
     
-    patterns: $ => repeatPattern($.pattern),
-
-    pattern: $ => choice(
-      $.variable,
-      // TODO:
-      // '[' ArrayPats ']'
-      // '{' ObjPats '}'
-    ),
-
     unary_expression: $ => prec.left('unary', seq(
       field('operator', choice('+', '-')),
       field('argument', $.expression),
@@ -322,46 +307,111 @@ module.exports = grammar({
       field('right', $.expression),
     )),
 
-    // object: $ => prec('object', seq(
-    //   '{',
-    //   commaSep(optional(
-    //     $.pair,
-    //     // $.spread_element,
-    //     // $.method_definition,
-    //     // alias(
-    //     //   choice($.identifier, $._reserved_identifier),
-    //     //   $.shorthand_property_identifier
-    //     // )
-    //   )),
-    //   '}'
-    // )),
+    binding_expression: $ => seq(
+      field("values", $.primary_expression),
+      'as',
+      field('bindings', $._patterns),
+    ),
 
-    // pair: $ => seq(
-    //   field('key', $._property_name),
-    //   ':',
-    //   field('value', $.expression)
-    // ),
+    _patterns: $ => prec.right(repeatPattern($._pattern)),
 
-    // _property_name: $ => choice(
-    //   $.string,
-    //   $.parenthesized_expression,
-    // ),
+    _pattern: $ => prec.right(choice(
+      $.variable,
+      $.object_pattern,
+      $.array_pattern,
+    )),
 
-    // optional_chain: $ => '?',
+    _object_key: $ => choice(
+      $.keyword,
+      $.variable,
+      $.identifier,
+      $.string,
+      $.parenthesized_expression,
+    ),
+    
+    pair_pattern: $ => seq(
+      field('key', $._object_key),
+      ':',
+      field('value', $._pattern)
+    ),
 
-    // array: $ => seq(
-    //   '[',
-    //   // commaSep(optional(choice(
-    //   //   $.expression,
-    //   // ))),
-    //   ']'
-    // ),
+    // object patterns matched in 'as' {...} bindings
+    object_pattern: $ => seq(
+      '{',
+      commaSep(
+        prec.left('member', choice(
+          $.variable,
+          $.pair_pattern
+        ))),
+      '}'
+    ),
+    
+    // MkDictPair
+    // {
+    //   [<str>|<ident>|<var>|<kw>|$__loc__],
+    //   [<str>|<ident>|<var>|<kw>|'('Exp')']: expD,
+    // }
+    pair: $ => seq(
+      field('key', $._object_key),
+      ':',
+      field('value', $.primary_expression)
+    ),
 
-    // // object[...]
-    // subscript_expression: $ => prec.right('member', seq(
-    //   field('object', choice($.expression)),
-    //   '[', field('index', $.expression), ']'
-    // )),
+    object: $ => seq(
+      '{',
+      commaSep(
+        prec.left('member', choice(
+          $.identifier,
+          $.variable,
+          $.string,
+          $.pair,
+        ))),
+      '}'
+    ),
+
+    // array patterns matched in 'as' [...] bindings
+    array_pattern: $ => seq(
+      '[',
+      commaSep(prec.left('member', $._pattern)),
+      ']'
+    ),
+
+    array: $ => seq(
+      '[',
+      commaSep(prec.left('member', $._expression)),
+      ']'
+    ),
+
+    // [:Exp] | [Exp:] | [Exp:Exp]
+    slice_expression: $ => choice(
+      seq(
+        optional(field('start', $.expression)),
+        ':',
+        field('end', $.expression)
+      ),
+      seq(
+        field('start', $.expression),
+        ':',
+        optional(field('end', $.expression)),
+      )
+    ),
+
+    // // PExp '.'? '[' Exp? ']'
+    subscript_expression: $ => prec.right('member', seq(
+      field('object', $.primary_expression),
+      '[',
+      choice(
+        optional(field('index', $.expression)),
+        $.slice_expression,
+      ),
+      ']',
+    )),
+
+    // PExp '.' [<str>|<field>]
+    field_expression: $ => prec('member', seq(
+      field('object', $.primary_expression),
+      field('field', $.field),
+    )),
 
     _identifier: $ => /[a-zA-Z_][a-zA-Z_0-9]*/,
 
@@ -372,6 +422,8 @@ module.exports = grammar({
     variable: $ => seq('$', $._qualified_identifier),
 
     _field: $ => seq('.', $._identifier),
+
+    field: $ => seq('.', alias(choice($.string, $._identifier), $.name)),
 
     format: $ => seq('@', field('type', /[a-zA-Z0-9_]+/)),
 
@@ -384,12 +436,18 @@ module.exports = grammar({
     // ---------------------------------------------------------------
     /// Strings
 
-    // TODO: strings
-    string: $ => /"[^"]*"/,
-    // string: $ => choice(
-    //   seq('"', $._qqstring, '"'),
-    //   seq($.format, '"', $._qqstring, '"')
-    // ),
+    interpolation: $ => seq('\\(', $._expression, ')'),
+
+    string: $ => seq(
+      '"',
+      repeat(choice(
+        token.immediate(/[^"\\]+/),
+        '\\"',
+        '\\\\',
+        $.interpolation,
+      )),
+      '"'
+    ),
   }
 });
 
