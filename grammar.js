@@ -1,7 +1,9 @@
+const IDENT_REGEXP = /([a-zA-Z_][a-zA-Z_0-9]*::)*[a-zA-Z_][a-zA-Z_0-9]*/;
+
 module.exports = grammar({
   name: 'jq',
 
-  word: $ => $._identifier,
+  word: $ => $.identifier,
 
   // Tokens that can appear anywhere (comments/whitespace)
   extras: $ => [
@@ -120,14 +122,14 @@ module.exports = grammar({
     function_definition: $ => prec.right('funcdef', seq(
       "def",
       field('name', $.identifier),
-      field('parameters', optional($.parameter_list)), ":",
+      field('parameters', optional($.formal_parameters)), ":",
       field('body', $.expression),
       ';'
     )),
 
     parameter: $ => field('name', $._ident),
 
-    parameter_list: $ => seq("(", semiSep($.parameter), ")"),
+    formal_parameters: $ => seq("(", semiSep($.parameter), ")"),
 
     _ident: $ => choice($.identifier, $.variable),
 
@@ -322,7 +324,7 @@ module.exports = grammar({
     )),
 
     _object_key: $ => choice(
-      $.keyword,
+      // $.keyword,
       $.variable,
       $.identifier,
       $.string,
@@ -413,23 +415,26 @@ module.exports = grammar({
       field('field', $.field),
     )),
 
-    _identifier: $ => /[a-zA-Z_][a-zA-Z_0-9]*/,
+    identifier: $ => IDENT_REGEXP, // /[a-zA-Z_][a-zA-Z_0-9]*/,
 
-    _qualified_identifier: $ => sep1($._identifier, '::'),
+    // _qualified_identifier: $ => {
+    //   const qualified = seq(IDENT_REGEXP, token.immediate('::'));
+    //   return token(repeat(qualified), ident);
+    // },
 
-    identifier: $ => $._qualified_identifier,
+    identifier: $ => IDENT_REGEXP, // $._qualified_identifier,
 
-    variable: $ => seq('$', $._qualified_identifier),
+    // '$' can be preceeded by whitespace
+    variable: $ => token(seq('$', /\s*/, IDENT_REGEXP)),
 
-    _field: $ => seq('.', $._identifier),
+    // '.' can't be followed by spaces
+    field: $ => /\.[a-zA-Z_][a-zA-Z_0-9]*/,
 
-    field: $ => seq('.', alias(choice($.string, $._identifier), $.name)),
-
-    format: $ => seq('@', field('type', /[a-zA-Z0-9_]+/)),
+    format: $ => /@[a-zA-Z0-9_]+/,
 
     number: $ => /[+-]?([0-9]+(\.[0-9]*)?|\.[0-9]+)([eE][+-]?[0-9]+)?/,
 
-    keyword: $ => /module|import|include|def|as|if|then|else|elif|end|and|or|reduce|foreach|try|catch|label|break|__loc__/,
+    // keyword: $ => /module|import|include|def|as|if|then|else|elif|end|and|or|reduce|foreach|try|catch|label|break|__loc__/,
 
     comment: $ => token(prec(-1, /#.*/)),
 
