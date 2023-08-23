@@ -63,7 +63,8 @@ module.exports = grammar({
     ],
     [$.assignment_expression, $.primary_expression],
     ['member', 'call', $.expression],
-    ['array', $.sequence_expression],
+    // ['array', $.sequence_expression],
+    [$._object_key, $.pair, $._expression],
   ],
 
   // LR(1) conflicts
@@ -122,14 +123,14 @@ module.exports = grammar({
     function_definition: $ => prec.right('funcdef', seq(
       "def",
       field('name', $.identifier),
-      field('parameters', optional($.formal_parameters)), ":",
+      field('parameters', optional($.parameter_list)), ":",
       field('body', $.expression),
       ';'
     )),
 
     parameter: $ => field('name', $._ident),
 
-    formal_parameters: $ => seq("(", semiSep($.parameter), ")"),
+    parameter_list: $ => seq("(", semiSep($.parameter), ")"),
 
     _ident: $ => choice($.identifier, $.variable),
 
@@ -150,7 +151,6 @@ module.exports = grammar({
       $.foreach_expression,
       $.try_expression,
       $.if_expression,
-      $.optional_expression,
     ),
 
     expression: $ => choice(
@@ -159,11 +159,12 @@ module.exports = grammar({
     ),
 
     primary_expression: $ => choice(
-      alias('.', $.dot),
+      $.dot,
       alias('..', $.recurse),
       alias('true', $.true),
       alias('false', $.false),
       alias('null', $.null),
+      $.optional_expression,
       $.format,
       $.field,
       $.number,
@@ -198,10 +199,10 @@ module.exports = grammar({
     
     call_expression: $ => prec('call', seq(
       field('function', $._ident),
-      field('arguments', $._arguments),
+      field('arguments', $.argument_list),
     )),
 
-    _arguments: $ => seq(
+    argument_list: $ => seq(
       '(',
       semiSep($.expression),
       ')',
@@ -281,8 +282,8 @@ module.exports = grammar({
     )),
 
     binary_expression: $ => choice(...[
-      [alias('and', $.and), 'binary_and'],
-      [alias('or', $.or), 'binary_or'],
+      ['and', 'binary_and'],
+      ['or', 'binary_or'],
       ['!=', 'binary_compare'],
       ['==', 'binary_compare'],
       ['<', 'binary_compare'],
@@ -294,7 +295,7 @@ module.exports = grammar({
       ['*', 'binary_times'],
       ['/', 'binary_times'],
       ['%', 'binary_times'],
-      [alias('//', $.alternative), 'alternative', 'right'],
+      ['//', 'alternative', 'right'],
     ].map(([operator, precedence, assoc]) =>
       (assoc === 'right' ? prec.right : prec.left)(precedence, seq(
         field('left', $.expression),
@@ -324,9 +325,8 @@ module.exports = grammar({
     )),
 
     _object_key: $ => choice(
-      // $.keyword,
       $.variable,
-      $.identifier,
+      alias($.identifier, $.field_id),
       $.string,
       $.parenthesized_expression,
     ),
@@ -363,7 +363,7 @@ module.exports = grammar({
       '{',
       commaSep(
         prec.left('member', choice(
-          $.identifier,
+          alias($.identifier, $.field_id),
           $.variable,
           $.string,
           $.pair,
@@ -398,6 +398,8 @@ module.exports = grammar({
       )
     ),
 
+    dot: $ => '.',
+    
     // // PExp '.'? '[' Exp? ']'
     subscript_expression: $ => prec.right('member', seq(
       field('object', $.primary_expression),
@@ -425,10 +427,14 @@ module.exports = grammar({
     identifier: $ => IDENT_REGEXP, // $._qualified_identifier,
 
     // '$' can be preceeded by whitespace
-    variable: $ => token(seq('$', /\s*/, IDENT_REGEXP)),
+    variable: $ => token(seq('$', IDENT_REGEXP)),
 
-    // '.' can't be followed by spaces
-    field: $ => /\.[a-zA-Z_][a-zA-Z_0-9]*/,
+    // '.' <ident> can't be followed by spaces, but '.' "ident"|["ident"] can
+    // field: $ => seq('.', /[a-zA-Z_][a-zA-Z_0-9]*/),
+    field: $ => prec('member', seq(
+      $.dot,
+      field('name', choice($.string, alias($.identifier, $.field_id)))
+    )),
 
     format: $ => /@[a-zA-Z0-9_]+/,
 
@@ -443,16 +449,38 @@ module.exports = grammar({
 
     interpolation: $ => seq('\\(', $._expression, ')'),
 
+    string_content: $ => token.immediate(/[^"\\]+/),
+    
     string: $ => seq(
       '"',
-      repeat(choice(
-        token.immediate(/[^"\\]+/),
-        '\\"',
-        '\\\\',
-        $.interpolation,
-      )),
+      optional($._literal_contents),
       '"'
+      // repeat(choice(
+      //   token.immediate(/[^"\\]+/),
+      //   '\\"',
+      //   '\\\\',
+      //   $.interpolation,
+      // )),
+      // '"'
     ),
+
+    _literal_contents: $ => repeat1(choice(
+      $.string_content,
+      $.interpolation,
+      $.escape_sequence,
+    )),
+
+    // XXX: javascript escape sequence
+    escape_sequence: $ => token.immediate(seq(
+      '\\',
+      choice(
+        /[^xu0-7]/,                               // single character
+        /[0-7]{1,3}/,                             // FIXME: octal allowed?
+        /x[0-9a-fA-F]{2}/,                        // FIXME: hex
+        /u[0-9a-fA-F]{4}/,                        // single unicode
+        /u{[0-9a-fA-F]+}/                         // multiple unicode
+      )
+    )),
   }
 });
 

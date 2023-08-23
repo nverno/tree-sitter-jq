@@ -4,6 +4,7 @@ test/example.txt
 tmp.*
 build/
 package-lock.json
+libtree-sitter-jq.so
 
 # src/
 # Cargo.toml

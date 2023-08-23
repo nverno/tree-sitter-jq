@@ -24,5 +24,13 @@
   "devDependencies": {
     "node-gyp": "^9.4.0",
     "tree-sitter-cli": "^0.20.8"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.jq",
+      "file-types": [
+        "jq"
+      ]
+    }
+  ]
 }
