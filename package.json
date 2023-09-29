@@ -4,7 +4,8 @@
   "description": "Jq grammar for tree-sitter",
   "keywords": [
     "parser",
-    "lexer"
+    "lexer",
+    "jq"
   ],
   "license": "GPL-3.0-or-later",
   "author": "Noah Peart <noah.v.peart@gmail.com> (https://www.github.com/nverno)",

@@ -1,3 +1,5 @@
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
 const IDENT_REGEXP = /([a-zA-Z_][a-zA-Z_0-9]*::)*[a-zA-Z_][a-zA-Z_0-9]*/;
 
 module.exports = grammar({
