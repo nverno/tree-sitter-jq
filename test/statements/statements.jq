@@ -6,8 +6,8 @@ module {
 # def a: 0; # [ERROR]: def before import
 include "b"{search: "."};
 import "a"
-	as
-A
+  as
+  A
 ;
 
 import "b" as B {

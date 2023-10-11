@@ -5,7 +5,8 @@ def debug(
     $msgs
       | debug
       | empty
-  ), .
+  ),
+    .
 ;
 
 1 as $x

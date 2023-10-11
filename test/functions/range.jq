@@ -6,12 +6,12 @@ def range1(init; upto; by):
     end;
   def tst:
     def _tst: def __tst: .; .;
-                            .;
+    .;
   if by == 0
   then init
   else init | _range1
   end
-  | select( (by > 0 and . < upto) or (by < 0 and . > upto))
+    | select( (by > 0 and . < upto) or (by < 0 and . > upto))
 ;
 
 range1(0; 10; 3)

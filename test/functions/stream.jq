@@ -3,7 +3,7 @@ def tostream:
     def r:
       (.[]?
         |
-          r            
+        r            
       ), .;
     r
   ) as $p
@@ -21,13 +21,13 @@ def tostream:
         ]
       )
     |
-      .
+        .
 ;
 
 .
   | tostream
   | (
-      . as $stream
-        | 1
-        | truncate_stream($stream)
+    . as $stream
+      | 1
+      | truncate_stream($stream)
   )
