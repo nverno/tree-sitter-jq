@@ -1,0 +1,25 @@
+====================================
+Import as $NAME
+====================================
+
+import "a" as $A;
+
+------------------------------------
+
+(program
+  (import_statement
+    (string (string_content))
+    (variable)))
+
+====================================
+Import as NAME
+====================================
+
+import "a" as A;
+
+------------------------------------
+
+(program
+  (import_statement
+    (string (string_content))
+    (identifier)))

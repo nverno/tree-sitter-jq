@@ -1,0 +1,29 @@
+====================================
+Include RelativePathString
+====================================
+
+include "a"{search: "."};
+
+------------------------------------
+
+(program
+  (include_statement
+    (string (string_content))
+    (metadata
+      (object
+        (pair
+          (field_id)
+          (string (string_content)))))))
+
+====================================
+Import as NAME
+====================================
+
+import "a" as A;
+
+------------------------------------
+
+(program
+  (import_statement
+    (string (string_content))
+    (identifier)))

@@ -22,7 +22,9 @@ module.exports = grammar({
   ],
 
   // hidden rule names to be considered supertypes in generated node types file
-  // supertypes: $ => [],
+  supertypes: $ => [
+    $.expression,
+  ],
 
   // JQ parser.y precedence
   // -----------------------------------
@@ -75,17 +77,16 @@ module.exports = grammar({
   // externals: $ => [],
 
   rules: {
-    // The root node of the grammar.
     program: $ => seq(
       optional($.module),
       repeat(choice(
         $.import_statement,
         $.include_statement
       )),
-      choice(
+      optional(choice(
         seq(repeat1($.function_definition), optional($.expression)),
         $.expression,
-      )),
+      ))),
 
     // ---------------------------------------------------------------
     /// Modules, Imports, Includes

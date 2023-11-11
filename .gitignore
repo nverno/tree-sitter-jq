@@ -5,6 +5,7 @@ tmp.*
 build/
 package-lock.json
 libtree-sitter-jq.so
+tree-sitter-jq.wasm
 
 # src/
 # Cargo.toml

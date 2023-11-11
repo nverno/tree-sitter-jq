@@ -1,31 +1,43 @@
 {
   "name": "tree-sitter-jq",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Jq grammar for tree-sitter",
   "keywords": [
     "parser",
     "lexer",
     "jq"
   ],
+  "homepage": "https://github.com/nverno/tree-sitter-jq#readme",
+  "bugs": {
+    "url": "https://github.com/nverno/tree-sitter-jq/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nverno/tree-sitter-jq.git"
+  },
   "license": "GPL-3.0-or-later",
   "author": "Noah Peart <noah.v.peart@gmail.com> (https://www.github.com/nverno)",
   "main": "bindings/node",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "build": "tree-sitter generate",
+    "build:native": "tree-sitter generate && node-gyp build",
     "build:wasm": "tree-sitter build-wasm",
     "install": "node-gyp rebuild",
-    "parse": "./scripts/test.sh run_test",
-    "parse:up": "./scripts/test.sh run_test -u",
+    "parse": "tree-sitter parse",
     "test": "tree-sitter test",
-    "ts": "tree-sitter"
+    "web": "npm run build:wasm && npx tree-sitter web-ui"
   },
   "dependencies": {
-    "nan": "^2.17.0"
+    "nan": "^2.18.0"
   },
   "devDependencies": {
-    "node-gyp": "^9.4.0",
+    "node-gyp": "^10.0.1",
     "tree-sitter-cli": "^0.20.8"
   },
+  "gypfile": true,
   "tree-sitter": [
     {
       "scope": "source.jq",

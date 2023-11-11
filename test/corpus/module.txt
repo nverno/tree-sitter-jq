@@ -1,0 +1,35 @@
+====================================
+Empty module
+====================================
+
+module{};
+
+------------------------------------
+
+(program
+  (module
+    (metadata
+      (object))))
+
+====================================
+Module metadata
+====================================
+
+module {
+  mod: null,
+  version: "1.0"
+};
+
+------------------------------------
+
+(program
+  (module
+    (metadata
+      (object
+        (pair
+          (field_id)
+          (null))
+        (pair
+          (field_id)
+          (string
+            (string_content)))))))
