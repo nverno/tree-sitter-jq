@@ -481,7 +481,7 @@ module.exports = grammar({
         /[0-7]{1,3}/,                             // FIXME: octal allowed?
         /x[0-9a-fA-F]{2}/,                        // FIXME: hex
         /u[0-9a-fA-F]{4}/,                        // single unicode
-        /u{[0-9a-fA-F]+}/                         // multiple unicode
+        /u\{[0-9a-fA-F]+\}/                       // multiple unicode
       )
     )),
   }

@@ -31,11 +31,11 @@
     "web": "npm run build:wasm && npx tree-sitter web-ui"
   },
   "dependencies": {
-    "nan": "^2.18.0"
+    "nan": "^2.22.1"
   },
   "devDependencies": {
-    "node-gyp": "^10.0.1",
-    "tree-sitter-cli": "^0.20.8"
+    "node-gyp": "^11.1.0",
+    "tree-sitter-cli": "^0.25.2"
   },
   "gypfile": true,
   "tree-sitter": [
