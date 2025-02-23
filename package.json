@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-jq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jq grammar for tree-sitter",
   "keywords": [
     "parser",
@@ -24,17 +24,20 @@
   "scripts": {
     "build": "tree-sitter generate",
     "build:native": "tree-sitter generate && node-gyp build",
-    "build:wasm": "tree-sitter build-wasm",
-    "install": "node-gyp rebuild",
+    "build:wasm": "tree-sitter build -wasm",
+    "install": "node-gyp-build",
     "parse": "tree-sitter parse",
     "test": "tree-sitter test",
-    "web": "npm run build:wasm && npx tree-sitter web-ui"
+    "prebuildify": "prebuildify --napi --strip"
   },
   "dependencies": {
-    "nan": "^2.22.1"
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
   },
   "devDependencies": {
-    "node-gyp": "^11.1.0",
+    "nan": "^2.22.1",
+    "node-gyp": "^10.2.0",
+    "prebuildify": "^6.0.0",
     "tree-sitter-cli": "^0.25.2"
   },
   "gypfile": true,
