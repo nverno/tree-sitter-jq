@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-jq
-        VERSION "1.0.1"
+        VERSION "1.0.2"
         DESCRIPTION "Jq grammar for tree-sitter"
         HOMEPAGE_URL "https://github.com/nverno/tree-sitter-jq"
         LANGUAGES C)

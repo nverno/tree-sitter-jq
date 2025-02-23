@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-jq",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Jq grammar for tree-sitter",
   "keywords": [
     "parser",
