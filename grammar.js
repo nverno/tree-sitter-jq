@@ -427,8 +427,6 @@ module.exports = grammar({
     //   return token(repeat(qualified), ident);
     // },
 
-    identifier: $ => IDENT_REGEXP, // $._qualified_identifier,
-
     // '$' can be preceeded by whitespace
     variable: $ => token(seq('$', IDENT_REGEXP)),
 
